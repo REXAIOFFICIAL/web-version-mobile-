@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>REX AI — Mobile Neon</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="header">
+      <div class="title">REX AI</div>
+      <button id="toggleCfg" class="cfg-toggle" aria-label="Toggle configuration">⚙️</button>
+    </header>
+
+    <main class="main">
+      <section id="chatPanel" class="chat-panel">
+        <div id="chatDisplay" class="chat-display" aria-live="polite"></div>
+
+        <div class="input-row">
+          <input id="userInput" class="chat-input" placeholder="Ask me anything..." autocomplete="off" />
+          <button id="sendBtn" class="btn primary">SEND</button>
+        </div>
+
+        <div id="statusBar" class="status">Model: <span id="statusModel">-</span> | API: <span id="statusApi">not set</span> | Brain: <span id="statusBrain">0</span> items</div>
+      </section>
+
+      <aside id="config" class="config hidden">
+        <div class="cfg-header">
+          <div class="cfg-title">Configuration</div>
+          <button id="closeCfg" class="link-btn">Close</button>
+        </div>
+
+        <label class="lbl">API Key</label>
+        <input id="apiKey" class="input" placeholder="OpenRouter API key" />
+
+        <label class="lbl">Model</label>
+        <input id="modelName" class="input" placeholder="Model (e.g. deepseek/...)" />
+
+        <div class="cfg-actions">
+          <button id="saveConfig" class="btn primary wide">Save</button>
+          <button id="viewHistory" class="btn wide">History</button>
+          <button id="manageBrain" class="btn wide">Manage Brain</button>
+        </div>
+
+        <div class="tip">Tip: Keep API key private; use a server proxy for production</div>
+      </aside>
+    </main>
+  </div>
+
+  <div id="modalRoot"></div>
+
+  <div id="loading" class="loading hidden">
+    <div class="loading-panel">
+      <div class="spinner"></div>
+      <div class="loading-text">REX AI is Thinking...</div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
